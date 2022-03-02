@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+
+import 'screens/login_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -7,7 +10,6 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -19,7 +21,7 @@ class MyApp extends StatelessWidget {
           headline1: TextStyle(
             fontFamily: "Poppins",
             fontWeight: FontWeight.bold,
-            fontSize: 30,
+            fontSize: 35,
             color: Color.fromRGBO(151, 255, 156, 1),
           ),
           headline2: TextStyle(
@@ -28,6 +30,8 @@ class MyApp extends StatelessWidget {
             fontWeight: FontWeight.bold,
             color: Colors.white,
           ),
+          bodyText1: TextStyle(
+              fontFamily: "Poppins", fontSize: 15, color: Colors.black),
         ),
       ),
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
@@ -46,28 +50,29 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   @override
+  void initState() {
+    super.initState();
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitDown,
+      DeviceOrientation.portraitUp,
+    ]);
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
-        decoration: const BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage(
-              "assets/img/pexels-golden-jojo-2409038 1.png",
-            ),
-            fit: BoxFit.cover,
+    final statusBarHeight = MediaQuery.of(context).padding.top;
+    return Container(
+      decoration: const BoxDecoration(
+        image: DecorationImage(
+          image: AssetImage(
+            "assets/img/pexels-golden-jojo-2409038 1.png",
           ),
+          fit: BoxFit.cover,
         ),
-        child: Column(
-          children: [
-            Container(
-              alignment: Alignment.center,
-              child: Text(
-                "Technoponics",
-                style: Theme.of(context).textTheme.headline1,
-              ),
-            )
-          ],
-        ),
+      ),
+      child: Scaffold(
+        backgroundColor: Colors.transparent,
+        body: LoginScreen(statusBarHeight: statusBarHeight),
       ),
     );
   }
