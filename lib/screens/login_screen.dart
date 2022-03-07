@@ -1,8 +1,10 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
+import './user_home_screen.dart';
+
 class LoginScreen extends StatefulWidget {
-  static final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  static String routeName = "/login-screen";
   final statusBarHeight;
   LoginScreen({
     Key? key,
@@ -15,6 +17,7 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
   late TapGestureRecognizer _tapGestureRecognizer;
+  static final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   @override
   void initState() {
@@ -49,6 +52,8 @@ class _LoginScreenState extends State<LoginScreen> {
       ),
     );
   }
+
+  bool isValid = false;
 
   @override
   Widget build(BuildContext context) {
@@ -110,7 +115,7 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
             ),
             Form(
-              key: LoginScreen._formKey,
+              key: _formKey,
               child: Column(
                 // shrinkWrap: true,
                 children: [
@@ -128,6 +133,13 @@ class _LoginScreenState extends State<LoginScreen> {
                         border: InputBorder.none,
                         focusColor: Colors.white,
                       ),
+                      validator: (String? value) {
+                        if (value != null && value.isEmpty) {
+                          return "Please enter the password";
+                        } else {
+                          return null;
+                        }
+                      },
                       keyboardType: TextInputType.emailAddress,
                     ),
                   ),
@@ -146,67 +158,82 @@ class _LoginScreenState extends State<LoginScreen> {
                         focusColor: Colors.white,
                       ),
                       obscureText: true,
+                      validator: (String? value) {
+                        if (value != null && value.isEmpty) {
+                          return "Please enter the password";
+                        } else {
+                          return null;
+                        }
+                      },
                       // keyboardType: TextInputType.,
                     ),
                   ),
-                ],
-              ),
-            ),
-            Container(
-              alignment: Alignment.topLeft,
-              margin: const EdgeInsets.only(left: 15, right: 15, top: 5),
-              child: RichText(
-                text: TextSpan(
-                  text: "Forget Password? ",
-                  style: const TextStyle(
-                    color: Colors.white,
-                    fontFamily: "Poppins",
-                    fontSize: 15,
-                  ),
-                  children: [
-                    TextSpan(
-                      recognizer: TapGestureRecognizer()
-                        ..onTap = () {
-                          print("hello");
-                        },
-                      text: " Reset",
-                      style: const TextStyle(
-                        decoration: TextDecoration.underline,
-                        color: Colors.white,
-                        fontFamily: "Poppins",
-                        fontSize: 15,
-                        fontWeight: FontWeight.bold,
+                  Container(
+                    alignment: Alignment.topLeft,
+                    margin: const EdgeInsets.only(left: 15, right: 15, top: 5),
+                    child: RichText(
+                      text: TextSpan(
+                        text: "Forget Password? ",
+                        style: const TextStyle(
+                          color: Colors.white,
+                          fontFamily: "Poppins",
+                          fontSize: 15,
+                        ),
+                        children: [
+                          TextSpan(
+                            recognizer: TapGestureRecognizer()
+                              ..onTap = () {
+                                print("hello");
+                              },
+                            text: " Reset",
+                            style: const TextStyle(
+                              decoration: TextDecoration.underline,
+                              color: Colors.white,
+                              fontFamily: "Poppins",
+                              fontSize: 15,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          )
+                        ],
                       ),
-                    )
-                  ],
-                ),
-              ),
-            ),
-            Container(
-              margin: const EdgeInsets.only(left: 15, right: 15, top: 25),
-              child: InkWell(
-                splashColor: Colors.white.withOpacity(0.3),
-                borderRadius: BorderRadius.circular(10),
-                onTap: () => print("Hello"),
-                child: Ink(
-                  padding: const EdgeInsets.all(17),
-                  height: 65,
-                  width: double.infinity,
-                  decoration: BoxDecoration(
-                    color: Theme.of(context).primaryColor,
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  child: const Text(
-                    "Login",
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontFamily: "Poppins",
-                      fontSize: 17,
-                      fontWeight: FontWeight.bold,
                     ),
                   ),
-                ),
+                  Container(
+                    margin: const EdgeInsets.only(left: 15, right: 15, top: 25),
+                    child: InkWell(
+                      splashColor: Colors.white.withOpacity(0.3),
+                      borderRadius: BorderRadius.circular(10),
+                      onTap: () {
+                        if (_formKey.currentState != null) {
+                          isValid = _formKey.currentState!.validate();
+                        }
+                        if (isValid) {
+                          Navigator.pushReplacementNamed(
+                              context, UserHomeScreen.routeName);
+                        }
+                      },
+                      child: Ink(
+                        padding: const EdgeInsets.all(17),
+                        height: 65,
+                        width: double.infinity,
+                        decoration: BoxDecoration(
+                          color: Theme.of(context).primaryColor,
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        child: const Text(
+                          "Login",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontFamily: "Poppins",
+                            fontSize: 17,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ),
             Container(

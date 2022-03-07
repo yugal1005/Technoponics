@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import 'screens/login_screen.dart';
+import 'screens/user_home_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -34,7 +35,12 @@ class MyApp extends StatelessWidget {
               fontFamily: "Poppins", fontSize: 15, color: Colors.black),
         ),
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      initialRoute: "/",
+      routes: {
+        "/": (ctx) => const MyHomePage(title: 'Flutter Demo Home Page'),
+        LoginScreen.routeName: (ctx) => LoginScreen(),
+        UserHomeScreen.routeName: (ctx) => const UserHomeScreen(),
+      },
     );
   }
 }
