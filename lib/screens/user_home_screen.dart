@@ -1,16 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
-class UserHomeScreen extends StatefulWidget {
+import '../widgets/circular_progress_bar/tds.dart';
+import '../widgets/circular_progress_bar/ph.dart';
+import '../widgets/day_temp.dart';
+
+class UserHomeScreen extends StatelessWidget {
   const UserHomeScreen({Key? key}) : super(key: key);
 
   static String routeName = "/user-home-screen";
-
-  @override
-  State<UserHomeScreen> createState() => _UserHomeScreenState();
-}
-
-class _UserHomeScreenState extends State<UserHomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -60,7 +58,7 @@ class _UserHomeScreenState extends State<UserHomeScreen> {
                 left: 30,
                 right: 30,
               ),
-              height: MediaQuery.of(context).size.height * 0.5,
+              height: MediaQuery.of(context).size.height * 0.55,
               child: StaggeredGrid.count(
                 crossAxisCount: 1,
                 // mainAxisSpacing: 3,
@@ -71,29 +69,52 @@ class _UserHomeScreenState extends State<UserHomeScreen> {
                       Container(
                         height: 175,
                         width: 195,
-                        child: const Card(
+                        child: Card(
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(20)),
                           elevation: 10,
-                          child: Text("Hello"),
+                          child: const Padding(
+                            padding: EdgeInsets.only(
+                              top: 10,
+                              left: 10,
+                              right: 10,
+                            ),
+                            child: TdsWidget(),
+                          ),
                         ),
                       ),
                       Container(
                         height: 175,
                         width: 195,
-                        child: const Card(
+                        child: Card(
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(20)),
                           elevation: 10,
-                          child: Text("World"),
+                          child: const Padding(
+                            padding: EdgeInsets.only(
+                              top: 10,
+                              left: 10,
+                              right: 10,
+                            ),
+                            child: PhWidget(),
+                          ),
                         ),
                       ),
                     ],
                   ),
                   Container(
-                    height: 215,
+                    height: 240,
                     width: 280,
-                    child: const Card(
+                    child: Card(
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20)),
                       elevation: 10,
-                      child: Text("What to do"),
+                      // child: SingleChildScrollView(
+                      //   scrollDirection: Axis.horizontal,
+                      child: const DayTemp(),
                     ),
-                  )
+                  ),
+                  // )
                 ],
               ),
             )

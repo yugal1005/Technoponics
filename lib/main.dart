@@ -16,14 +16,14 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Technoponics',
       theme: ThemeData(
-        primaryColor: const Color.fromRGBO(151, 255, 156, 1),
+        primaryColor: const Color.fromRGBO(151, 200, 156, 1),
         accentColor: const Color.fromRGBO(220, 110, 103, 1),
         textTheme: const TextTheme(
           headline1: TextStyle(
             fontFamily: "Poppins",
             fontWeight: FontWeight.bold,
             fontSize: 35,
-            color: Color.fromRGBO(151, 255, 156, 1),
+            color: Color.fromRGBO(151, 200, 156, 1),
           ),
           headline2: TextStyle(
             fontFamily: "Poppins",
@@ -33,13 +33,13 @@ class MyApp extends StatelessWidget {
           ),
           headline3: TextStyle(
             fontFamily: "Poppins",
-            color: Color.fromRGBO(151, 255, 156, 1),
+            color: Color.fromRGBO(151, 200, 156, 1),
             fontWeight: FontWeight.bold,
             fontSize: 24,
           ),
           headline4: TextStyle(
             fontFamily: "Poppins",
-            fontSize: 35,
+            fontSize: 30,
             fontWeight: FontWeight.bold,
             color: Color.fromRGBO(94, 94, 94, 1),
           ),
@@ -51,7 +51,7 @@ class MyApp extends StatelessWidget {
           bodyText2: TextStyle(
             color: Color.fromRGBO(94, 94, 94, 1),
             fontFamily: "Poppins",
-            fontSize: 20,
+            fontSize: 18,
             fontWeight: FontWeight.bold,
           ),
           caption: TextStyle(
