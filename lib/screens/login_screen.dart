@@ -135,7 +135,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                       validator: (String? value) {
                         if (value != null && value.isEmpty) {
-                          return "Please enter the password";
+                          return "Please enter the Email";
                         } else {
                           return null;
                         }
@@ -151,6 +151,15 @@ class _LoginScreenState extends State<LoginScreen> {
                       borderRadius: BorderRadius.circular(10),
                     ),
                     child: TextFormField(
+                      onSaved: (value) {
+                        if (_formKey.currentState != null) {
+                          isValid = _formKey.currentState!.validate();
+                        }
+                        if (isValid) {
+                          Navigator.pushReplacementNamed(
+                              context, UserHomeScreen.routeName);
+                        }
+                      },
                       decoration: InputDecoration(
                         hintStyle: Theme.of(context).textTheme.bodyText1,
                         hintText: "Password",
