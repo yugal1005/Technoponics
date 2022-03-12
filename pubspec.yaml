@@ -62,6 +62,7 @@ flutter:
   assets:
   - assets/img/pexels-golden-jojo-2409038 1.png 
   - assets/img/Screenshot_20211202_212026.png
+  - assets/img/LettuceRomaineGreen_600x 1.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

@@ -61,7 +61,7 @@ class MyApp extends StatelessWidget {
           ),
         ),
       ),
-      initialRoute: UserHomeScreen.routeName,
+      initialRoute: "/",
       routes: {
         "/": (ctx) => const MyHomePage(title: 'Flutter Demo Home Page'),
         LoginScreen.routeName: (ctx) => LoginScreen(),
