@@ -25,7 +25,7 @@
 ## About The Project
 
 <img src="https://cdn.discordapp.com/attachments/876465161005838376/952968480448200724/Screenshot_2022-03-14-22-05-31-17_8415a437982e53d9d68130e26f089127.png" alt="LogIn Screen" width="200" >
-<img src = "https://cdn.discordapp.com/attachments/876465161005838376/952968480095862844/Screenshot_2022-03-14-22-05-47-96_8415a437982e53d9d68130e26f089127.png" alt = "Home Screen">
+<img src = "https://cdn.discordapp.com/attachments/876465161005838376/952968480095862844/Screenshot_2022-03-14-22-05-47-96_8415a437982e53d9d68130e26f089127.png" alt = "Home Screen" width="200">
 <br>
 
 Technoponics is a app to know about health related stuff for Android written in Flutter/Dart.
