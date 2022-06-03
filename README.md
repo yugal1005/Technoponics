@@ -78,5 +78,5 @@ See the [open issues](https://github.com/yugal1005/Technoponics/issues) for a li
 
 Yugal Panchal - [@yugal1005](https://www.instagram.com/yugal1005/) - yugalpanchal01@gmail.com
 
-Project Link: [https://github.com/WarMac4964/BaatCheet](https://github.com/yugal1005/Technoponics)
+Project Link: [https://github.com/yugal1005/Technoponics](https://github.com/yugal1005/Technoponics)
 
